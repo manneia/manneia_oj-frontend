@@ -10,6 +10,7 @@ export default {
     },
   }),
   actions: {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async getLoginUser({ commit, state }, payload) {
       // 从远程请求获取登录信息
       const res = await UserControllerService.getLoginUser();
