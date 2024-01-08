@@ -3,34 +3,34 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { OrderItem } from './OrderItem';
-import type { PostVO } from './PostVO';
+import type { OrderItem } from "./OrderItem";
+import type { PostVo } from "./PostVo";
 
-export type PagePostVO = {
-    records?: Array<PostVO>;
-    total?: number;
-    size?: number;
-    current?: number;
-    /**
-     * @deprecated
-     */
-    orders?: Array<OrderItem>;
-    /**
-     * @deprecated
-     */
-    optimizeCountSql?: boolean;
-    /**
-     * @deprecated
-     */
-    searchCount?: boolean;
-    optimizeJoinOfCountSql?: boolean;
-    /**
-     * @deprecated
-     */
-    countId?: string;
-    /**
-     * @deprecated
-     */
-    maxLimit?: number;
-    pages?: number;
+export type PagePostVo = {
+  records?: Array<PostVo>;
+  total?: number;
+  size?: number;
+  current?: number;
+  /**
+   * @deprecated
+   */
+  orders?: Array<OrderItem>;
+  /**
+   * @deprecated
+   */
+  optimizeCountSql?: boolean;
+  /**
+   * @deprecated
+   */
+  searchCount?: boolean;
+  optimizeJoinOfCountSql?: boolean;
+  /**
+   * @deprecated
+   */
+  countId?: string;
+  /**
+   * @deprecated
+   */
+  maxLimit?: number;
+  pages?: number;
 };

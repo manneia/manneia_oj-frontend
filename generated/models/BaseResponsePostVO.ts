@@ -3,10 +3,10 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { PostVO } from './PostVO';
+import type { PostVo } from "./PostVo";
 
-export type BaseResponsePostVO = {
-    code?: number;
-    data?: PostVO;
-    message?: string;
+export type BaseResponsePostVo = {
+  code?: number;
+  data?: PostVo;
+  message?: string;
 };

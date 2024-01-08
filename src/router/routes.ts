@@ -36,6 +36,32 @@ export const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    path: "/add/question",
+    name: "创建题目",
+    component: import("@/views/question/AddQuestionView.vue"),
+    meta: {
+      access: ACCESS_ENUM.USER,
+    },
+  },
+  {
+    path: "/update/question",
+    name: "更新题目",
+    component: import("@/views/question/UpdateQuestionView.vue"),
+    meta: {
+      access: ACCESS_ENUM.USER,
+    },
+  },
+  {
+    path: "/manage/question",
+    name: "管理题目",
+    component: import("@/views/question/ManageQuestionView.vue"),
+  },
+  {
+    path: "/",
+    name: "浏览题目",
+    component: () => import("@/views/ExampleView.vue"),
+  },
+  {
     path: "/admin",
     name: "管理员可见",
     component: AdminView,

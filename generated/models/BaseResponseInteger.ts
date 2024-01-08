@@ -4,7 +4,7 @@
 /* eslint-disable */
 
 export type BaseResponseInteger = {
-    code?: number;
-    data?: number;
-    message?: string;
+  code?: number;
+  data?: number;
+  message?: string;
 };

@@ -4,5 +4,5 @@
 /* eslint-disable */
 
 export type UploadFileRequest = {
-    biz?: string;
+  biz?: string;
 };

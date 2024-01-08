@@ -4,7 +4,7 @@
 /* eslint-disable */
 
 export type PostAddRequest = {
-    title?: string;
-    content?: string;
-    tags?: Array<string>;
+  title?: string;
+  content?: string;
+  tags?: Array<string>;
 };

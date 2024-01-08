@@ -1,16 +1,47 @@
 <template>
-  <Editor :value="value" :plugins="plugins" @change="handleChange" />
+  <Editor
+    :value="value"
+    :mode="mode"
+    :plugins="plugins"
+    @change="handleChange"
+  />
 </template>
 
 <script setup lang="ts">
 import gfm from "@bytemd/plugin-gfm";
 import highlight from "@bytemd/plugin-highlight";
 import { Editor } from "@bytemd/vue-next";
-import { ref } from "vue";
+import { withDefaults, defineProps } from "vue";
 
-const value = ref("");
+/**
+ * 定义属性组件的类型
+ * @param value 编辑器内容
+ * @param handleChange 编辑器内容改变时触发的事件
+ */
+interface Props {
+  value: string;
+  mode: string;
+  handleChange: (v: string) => void;
+}
+
+/**
+ * 给定默认值
+ * @param props 传入的属性
+ * @param defaultProps 默认属性
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const props = withDefaults(defineProps<Props>(), {
+  value: () => "",
+  mode: () => "split",
+  handleChange: (v: string) => {
+    console.log(v);
+  },
+});
 const plugins = [gfm(), highlight()];
-const handleChange = (v: string) => {
-  value.value = v;
-};
 </script>
+
+<style>
+.bytemd-toolbar-icon.bytemd-tippy.bytemd-tippy-right:last-child {
+  display: none;
+}
+</style>
