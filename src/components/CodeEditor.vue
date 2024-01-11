@@ -3,15 +3,17 @@
 </template>
 <script setup lang="ts">
 import * as monaco from "monaco-editor";
-import { onMounted, ref, toRaw, withDefaults, defineProps } from "vue";
+import { onMounted, ref, toRaw, withDefaults, defineProps, watch } from "vue";
 
 interface Props {
   value: string;
+  language: string;
   handleValueChange: (value: string) => void;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   value: () => "",
+  language: "Java",
   handleValueChange: (v: string) => {
     console.log(v);
   },
@@ -27,6 +29,18 @@ const fillValue = () => {
   toRaw(codeEditor.value).setValue("新的值");
 };
 
+watch(
+  () => props.language,
+  () => {
+    if (codeEditor.value) {
+      monaco.editor.setModelLanguage(
+        toRaw(codeEditor.value).getModel(),
+        props.language
+      );
+    }
+  }
+);
+
 onMounted(() => {
   if (!codeEditorRef.value) {
     return;
@@ -34,7 +48,7 @@ onMounted(() => {
   // Hover on each property to see its docs!
   codeEditor.value = monaco.editor.create(codeEditorRef.value, {
     value: props.value,
-    language: "javascript",
+    language: props.language,
     theme: "vs-dark",
     automaticLayout: true,
     minimap: {

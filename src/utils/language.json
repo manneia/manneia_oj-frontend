@@ -1,0 +1,78 @@
+[
+  {
+    "name": "C",
+    "index": 1
+  },
+  {
+    "name": "CPP",
+    "index": 2
+  },
+  {
+    "name": "Java",
+    "index": 3
+  },
+  {
+    "name": "Python",
+    "index": 4
+  },
+  {
+    "name": "JavaScript",
+    "index": 5
+  },
+  {
+    "name": "Swift",
+    "index": 6
+  },
+  {
+    "name": "Go",
+    "index": 7
+  },
+  {
+    "name": "TypeScript",
+    "index": 8
+  },
+  {
+    "name": "Kotlin",
+    "index": 9
+  },
+  {
+    "name": "PHP",
+    "index": 10
+  },
+  {
+    "name": "C#",
+    "index": 11
+  },
+  {
+    "name": "Ruby",
+    "index": 12
+  },
+  {
+    "name": "Rust",
+    "index": 13
+  },
+  {
+    "name": "Dart",
+    "index": 14
+  },
+  {
+    "name": "Scala",
+    "index": 15
+  },
+  {
+    "name": "Haskell",
+    "index": 16
+  },
+  {
+    "name": "R",
+    "index": 17
+  },
+  {
+    "name": "Perl",
+    "index": 18
+  },
+  {
+    "name": "Lua",
+    "index": 19
+  }
+]

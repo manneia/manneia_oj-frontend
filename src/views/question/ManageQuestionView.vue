@@ -6,9 +6,10 @@
       :pagination="{
         showTotal: true,
         pageSize: searchParams.pageSize,
-        current: searchParams.pageNum,
+        current: searchParams.current,
         total,
       }"
+      @page-change="onPageChange"
     >
       <template #optional="{ record }">
         <a-space>
@@ -20,7 +21,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watchEffect } from "vue";
 import { Question, QuestionControllerService } from "../../../generated";
 import message from "@arco-design/web-vue/es/message";
 import { useRouter } from "vue-router";
@@ -79,7 +80,7 @@ const dataList = ref([]);
 const total = ref(0);
 const searchParams = ref({
   pageSize: 10,
-  pageNum: 1,
+  current: 1,
 });
 
 const router = useRouter();
@@ -119,6 +120,21 @@ const doDelete = async (question: Question) => {
     // todo 更新数据
   }
 };
+
+const onPageChange = (page: number) => {
+  console.log(page);
+  searchParams.value = {
+    ...searchParams.value,
+    current: page,
+  };
+};
+
+/**
+ * 监听searchParams变化，自动加载数据
+ */
+watchEffect(() => {
+  loadData();
+});
 </script>
 
 <style scoped></style>

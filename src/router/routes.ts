@@ -4,7 +4,6 @@ import UserLoginView from "@/views/user/UserLoginView.vue";
 import UserRegisterView from "@/views/user/UserRegisterView.vue";
 import NoAuthView from "@/views/NoAuthView.vue";
 import ACCESS_ENUM from "@/access/accessEnum";
-import AdminView from "@/views/AdminView.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -36,6 +35,24 @@ export const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    path: "/questions",
+    name: "浏览题目",
+    component: () => import("@/views/question/QuestionView.vue"),
+    meta: {
+      access: ACCESS_ENUM.USER,
+    },
+  },
+  {
+    path: "/view/question/:id",
+    name: "在线做题",
+    component: import("@/views/question/ViewQuestionView.vue"),
+    props: true,
+    // meta: {
+    //   access: ACCESS_ENUM.USER,
+    //   hideInMenu: true,
+    // },
+  },
+  {
     path: "/add/question",
     name: "创建题目",
     component: import("@/views/question/AddQuestionView.vue"),
@@ -43,36 +60,34 @@ export const routes: Array<RouteRecordRaw> = [
       access: ACCESS_ENUM.USER,
     },
   },
+  // {
+  //   path: "/update/question",
+  //   name: "更新题目",
+  //   component: import("@/views/question/UpdateQuestionView.vue"),
+  //   meta: {
+  //     hideInMenu: true,
+  //   },
+  // },
   {
-    path: "/update/question",
-    name: "更新题目",
-    component: import("@/views/question/UpdateQuestionView.vue"),
+    path: "/manage/question",
+    name: "管理题目",
+    component: import("@/views/question/ManageQuestionView.vue"),
     meta: {
       access: ACCESS_ENUM.USER,
     },
   },
   {
-    path: "/manage/question",
-    name: "管理题目",
-    component: import("@/views/question/ManageQuestionView.vue"),
-  },
-  {
     path: "/",
-    name: "浏览题目",
-    component: () => import("@/views/ExampleView.vue"),
-  },
-  {
-    path: "/admin",
-    name: "管理员可见",
-    component: AdminView,
+    name: "主页",
+    component: () => import("@/views/question/QuestionView.vue"),
     meta: {
-      access: ACCESS_ENUM.ADMIN,
+      access: ACCESS_ENUM.USER,
     },
   },
-  {
-    path: "/about",
-    name: "关于我的",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "@/views/AboutView.vue"),
-  },
+  // {
+  //   path: "/about",
+  //   name: "关于我的",
+  //   component: () =>
+  //     import(/* webpackChunkName: "about" */ "@/views/AboutView.vue"),
+  // },
 ];
